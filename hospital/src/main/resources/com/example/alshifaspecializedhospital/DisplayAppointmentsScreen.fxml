@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alshifaspecializedhospital.DisplayAppointmentsController">
+    <children>
+        <VBox alignment="TOP_CENTER" layoutX="20.0" layoutY="20.0" prefHeight="510.0" prefWidth="610.0" spacing="15.0">
+            <children>
+                <!-- عنوان الشاشة -->
+                <Label text="قائمة المواعيد المحجوزة بالنظام" textFill="#2b5e2b">
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                </Label>
+
+                <!-- مساحة عرض المواعيد (TextArea بدلاً من TableView) -->
+                <TextArea fx:id="txt_allAppointments" editable="false" prefHeight="250.0" prefWidth="590.0" style="-fx-font-family: 'Segoe UI', sans-serif; -fx-font-size: 13pt;">
+                    <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                    </VBox.margin>
+                </TextArea>
+
+                <!-- تعريف مجموعات أزرار الراديو -->
+                <fx:define>
+                    <ToggleGroup fx:id="statusGroup" />
+                </fx:define>
+
+                <!-- لوحة التحكم في حالة الموعد (رقم الموعد + أزرار الراديو) -->
+                <VBox alignment="CENTER" spacing="12.0" style="-fx-background-color: #ffffff; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 12;">
+                    <children>
+                        <HBox alignment="CENTER" spacing="10.0">
+                            <children>
+                                <TextField fx:id="txtAppointmentId" alignment="CENTER" prefWidth="120.0" promptText="رقم الموعد" />
+                                <Label text=": أدخل رقم الموعد المراد تعديله">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="20.0">
+                            <children>
+                                <RadioButton fx:id="rbCancel" text="إلغاء الموعد" textFill="#d32f2f">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="statusGroup" />
+                           </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="rbComplete" text="إنهاء الموعد (مكتمل)" textFill="#1976d2" toggleGroup="$statusGroup">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </RadioButton>
+                                <RadioButton fx:id="rbStart" text="بدء الموعد (مبلّش)" textFill="#2e7d32" toggleGroup="$statusGroup">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </RadioButton>
+                            </children>
+                        </HBox>
+                        <Button onAction="#handleApplyStatusChange" style="-fx-background-color: #00897b; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="تحديث حالة الموعد" />
+                    </children>
+                </VBox>
+
+                <HBox alignment="CENTER" spacing="20.0">
+                    <children>
+                        <Button fx:id="btn_back" onAction="#onButtonBackPressed" prefHeight="35.0" prefWidth="160.0" style="-fx-background-color: #2b5e2b; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="العودة لشاشة الحجز" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

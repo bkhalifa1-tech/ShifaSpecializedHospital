@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="442.0" prefWidth="655.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.alshifaspecializedhospital.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Label contentDisplay="BOTTOM" graphicTextGap="20.0" text="نظام مستشفى الشفاء التخصصي" textFill="#2b5e2b">
+         <font>
+            <Font name="Algerian" size="32.0" />
+         </font>
+      </Label>
+      <Button fx:id="selectFileBtn" mnemonicParsing="false" onAction="#onSelectFileClick" prefHeight="20.0" prefWidth="163.0" style="-fx-background-color: #597c5a;" text="📂 اختيار وتحميل ملف الأطباء" textFill="WHITE" />
+       <Button fx:id="nextBtn" disable="true" mnemonicParsing="false" onAction="#onGoToMainMenuClick" prefHeight="34.0" prefWidth="320.0" text="➡️ الدخول إلى النظام" textFill="#2e7d32" />   </children>
+</VBox>
